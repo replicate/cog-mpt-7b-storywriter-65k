@@ -23,6 +23,13 @@ sudo chmod +x /usr/local/bin/cog
 
 ## Step 1: Set up weights
 
+You can use the following script to pull the model weights from the Hugging Face Hub. We also recommend using `tensorizer` to tensorize your weights, which will dramatically reduce the time it takes to load your model. 
+
+
+```
+chmod +x scripts/download_and_prepare_model.py
+cog run python scripts/download_and_prepare_model.py --model_name mosaicml/mpt-7b-storywriter --model_path model --tensorize --tensorizer_path model/mpt-7b-storywriter-65.tensors
+```
 
 ## Step 2: Run the model
 
@@ -32,19 +39,29 @@ You can run the model locally to test it:
 cog predict -i prompt="On a dark and stormy night "
 ```
 
-## Step 3: Create a model on Replicate
+## Step 3: Push your model weights to cloud storage
+
+If you want to deploy your own cog version of this model, we recommend pushing the tensorized weights to a public bucket. You can then configure the `setup` method in `predict.py` to pull the tensorized weights. 
+
+Currently, we provide boiler-plate code for pulling weights from GCP. To use the current configuration, simply set `TENSORIZER_WEIGHTS_PATH` to the public Google Cloud Storage Bucket path of your tensorized model weights. At setup time, they'll be downloaded and loaded into memory. 
+
+Alternatively, you can implement your own solution using your cloud storage provider of choice. 
+
+To see if the remote weights configuration works, you can run the model locally.
+
+## Step 4: Create a model on Replicate
 
 Go to [replicate.com/create](https://replicate.com/create) to create a Replicate model.
 
 Make sure to specify "private" to keep the model private.
 
-## Step 4: Configure the model to run on A100 GPUs
+## Step 5: Configure the model to run on A100 GPUs
 
 Replicate supports running models on a variety of GPUs. The default GPU type is a T4, but for best performance you'll want to configure your model to run on an A100.
 
 Click on the "Settings" tab on your model page, scroll down to "GPU hardware", and select "A100". Then click "Save".
 
-## Step 5: Push the model to Replicate
+## Step 6: Push the model to Replicate
 
 Log in to Replicate:
 
