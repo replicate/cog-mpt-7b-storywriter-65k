@@ -5,7 +5,7 @@ A cog implementation of MosaicML's MPT-7B-StoryWriter-65k+ Large Language Model
 
 This is a guide to running MPT-7B-StoryWriter-65k+ in the cloud using Replicate. You'll use the [Cog](https://github.com/replicate/cog) command-line tool to package the model and push it to Replicate as a web interface and API.
 
-MPT-7B-StoryWriter-65k+ is a language model that specializes in generating fictional stories with lengthy context lengths. The model was created by finetuning MPT-7B with a context length of 65k tokens on a filtered fiction subset of the books3 dataset. Thanks to ALiBi, the model can extrapolate beyond 65k tokens at inference time, allowing for longer story generations. The MosaicML team demonstrated the ability to generate stories as long as 84k tokens on a single node of 8 A100-80GB GPUs in their blog [post]([url](https://www.mosaicml.com/blog/mpt-7b)).
+MPT-7B-StoryWriter-65k+ is a language model that specializes in generating fictional stories with lengthy context lengths. The model was created by finetuning MPT-7B with a context length of 65k tokens on a filtered fiction subset of the books3 dataset. Thanks to ALiBi, the model can extrapolate beyond 65k tokens at inference time, allowing for longer story generations. The MosaicML team demonstrated the ability to generate stories as long as 84k tokens on a single node of 8 A100-80GB GPUs in their blog [post](https://www.mosaicml.com/blog/mpt-7b).
 
 ## Prerequisites
 
