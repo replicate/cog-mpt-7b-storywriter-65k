@@ -1,4 +1,6 @@
 # cog-mpt-7b-storywriter-65k
+[![Replicate](https://replicate.com/replicate/mpt-7b-storywriter/badge)](https://replicate.com/replicate/mpt-7b-storywriter) 
+
 A cog implementation of MosaicML's MPT-7B-StoryWriter-65k+ Large Language Model
 
 This is a guide to running MPT-7B-StoryWriter-65k+ in the cloud using Replicate. You'll use the [Cog](https://github.com/replicate/cog) command-line tool to package the model and push it to Replicate as a web interface and API.
